@@ -1,0 +1,16 @@
+.pokemons-card {
+  margin-bottom: 2rem;
+}
+
+.pokemons-card:nth-child(odd) {
+  margin-right: 1rem;
+}
+
+.pokemons-card:nth-of-type(even) {
+  margin-left: 1rem;
+}
+
+.pokemons-card__image.css-o69gx8-MuiCardMedia-root {
+  margin: 0 auto;
+  width: auto;
+}
