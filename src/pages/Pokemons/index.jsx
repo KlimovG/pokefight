@@ -4,54 +4,93 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import {
-
-  Link
-} from "react-router-dom";
+import { useParams, Link, useRouteMatch } from "react-router-dom";
+import loader from '../../loader.gif'
 import axios from "axios";
 import PokeCard from "../../components/PokeCard"
+import Pagination from '@mui/material/Pagination';
 
 const Pokemons = () => {
   const [data, setData] = useState()
+  const [isLoading, setIsLoading] = useState(false)
+  const [cardsOnPage, setCardsOnPage] = useState(20)
+  const [dataForPage, setDataForPage] = useState()
+  const [currentPage, setCurrentPage] = useState(1)
+  const [allPages, setAllPages] = useState()
+  const changePage = (_, value) => {
+    setCurrentPage(value);
+    const lastIndex = cardsOnPage * value;
+    const firstIndex = lastIndex - cardsOnPage;
+    const dataOnPage = data.slice(firstIndex, lastIndex)
+    setDataForPage(dataOnPage)
+    console.log(dataOnPage)
+    console.log(lastIndex)
+  };
+  const { id } = useParams()
 
 
   useEffect(() => {
-    axios.get('http://localhost:3000/pokemons')
+    setIsLoading(prev => prev = !prev)
+    axios.get('https://wbs-pokefight.herokuapp.com/pokemons')
       .then((response) => {
         // handle success
-        setData(response.data);
+        setData(response.data)
+        // setIsLoading(false)
+        setAllPages(Math.ceil(response.data.length / cardsOnPage))
+        const lastIndex = cardsOnPage * currentPage;
+        const firstIndex = lastIndex - cardsOnPage;
+        const dataOnPage = response.data.slice(firstIndex, lastIndex)
+        setDataForPage(dataOnPage)
       })
       .catch(function (error) {
-        // handle error
         console.log(error);
       })
-      .then(function () {
-        // always executed
-      });
+
+
   }, [])
+
+
   return (
     <section className="hero pokemons">
       <Container maxWidth="md">
-        <Typography className="hero__title" variant="h1" component="h1" gutterBottom>
-          Pokemons
+
+        <Typography
+          className="hero__title title"
+          variant="h1"
+          component="h1"
+        >
+          All Pokemons
         </Typography>
         <div className="pokemons__row">
-          {/* <Link className="hero__btn" to="/pokemons">see all pokemons</Link> */}
-          {
-            data && data.map(pokemon => {
-              return (
-                <PokeCard
-                  key={pokemon.id}
-                  id={pokemon.id}
-                  name={pokemon.name}
-                  type={pokemon.type}
-                  base={pokemon.base}
-                />
-
-              )
-            })
+          {dataForPage && dataForPage.map(pokemon => {
+            return (
+              <PokeCard
+                key={pokemon.id}
+                pokemonId={pokemon.id}
+                name={pokemon.name}
+                type={pokemon.type}
+                base={pokemon.base}
+              />)
+          })
           }
         </div>
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          < Pagination
+            count={allPages}
+            variant="outlined"
+            shape="rounded"
+            page={currentPage}
+            sx={{
+              marginBottom: "2rem"
+            }}
+            onChange={changePage} />
+        </Stack>
+
+
       </Container>
     </section>
   )

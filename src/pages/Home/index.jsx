@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <section className="hero">
       <Container maxWidth="sm">
-        <Typography className="hero__title" variant="h1" component="h1" gutterBottom>
+        <Typography className="hero__title title" variant="h1" component="h1" gutterBottom>
           Play a game?
         </Typography>
         <Stack spacing={4} direction="row" justifyContent="center">
