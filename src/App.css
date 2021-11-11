@@ -76,10 +76,19 @@ body {
 
 }
 
+.nav.MuiButtonGroup-root {
+  position: fixed;
+  z-index: 99;
+  left: 50%;
+  bottom: .5rem;
+  transform: translateX(-50%);
+}
+
 .nav__btn.MuiButton-root {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0;
 }
 
 .nav__btn.MuiButton-root>span {

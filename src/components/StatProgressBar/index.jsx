@@ -5,20 +5,23 @@ const StatProgressBar = ({ type, value }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((oldProgress) => {
-        if (oldProgress === value) {
-          return oldProgress;
-        }
+    const currentValue = Math.ceil(value / 2)
+    console.log(currentValue)
+    setProgress((oldProgress) => {
+      return oldProgress = currentValue
+      //   if (oldProgress >= currentValue) {
+      //     return oldProgress;
+      //   }
 
-        return (oldProgress + 1);
-      });
+      //   return (oldProgress + 1);
+    });
+    const timer = setInterval(() => {
     }, 30);
 
     return () => {
       clearInterval(timer);
     };
-  }, [])
+  }, [value])
 
 
   return (

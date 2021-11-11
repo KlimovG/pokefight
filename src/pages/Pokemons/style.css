@@ -1,3 +1,7 @@
+.pokemons {
+  padding-bottom: 50px;
+}
+
 .pokemons__row {
   display: flex;
   justify-content: center;
