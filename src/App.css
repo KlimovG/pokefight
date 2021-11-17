@@ -1,41 +1,4 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+/* Settings */
 * {
   box-sizing: border-box;
 }
@@ -43,6 +6,12 @@
 body {
   background-color: #F4F6FA
 }
+
+.section {
+  padding-bottom: 80px;
+}
+
+/* Interface */
 
 .title.MuiTypography-h1 {
   font-family: 'Mochiy Pop One';
@@ -75,6 +44,55 @@ body {
   max-height: 100%;
 
 }
+
+.button {
+  appearance: none;
+  padding: 1rem 2rem;
+  border-radius: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: box-shadow .3s, transform .3s, background-color .3s, border .3s;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+
+}
+
+.button--main {
+  border: 3px solid #242730;
+  color: #242730;
+  background-color: #FFF9E1;
+  box-shadow: .2rem .2rem 0px rgba(255, 157, 0, 0.9);
+  transform: translate(0, 0);
+}
+
+.button--main:hover {
+  background-color: #FF9D00;
+  border-color: #FF9D00;
+  box-shadow: 0 0 0px rgba(124, 78, 3, 0.9);
+  transform: translate(.2rem, .2rem);
+}
+
+.button--attack {
+  border: 3px solid #242730;
+  color: #242730;
+  background-color: #FFF9E1;
+}
+
+.button--attack:hover {
+  background-color: #FF9D00;
+  border-color: #FF9D00;
+}
+
+.button--attack[disabled] {
+  background-color: #cccccc;
+  color: #242730;
+  border: 3px solid #cccccc;
+
+}
+
+/* Navigation */
 
 .nav.MuiButtonGroup-root {
   position: fixed;

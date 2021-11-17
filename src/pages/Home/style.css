@@ -8,28 +8,3 @@
   font-size: 3rem;
   text-align: center;
 }
-
-.hero__btn {
-  appearance: none;
-  padding: 1rem 2rem;
-  border: 3px solid #242730;
-  color: #242730;
-  border-radius: 0;
-  background-color: #FFF9E1;
-  font-weight: 600;
-  text-transform: uppercase;
-  box-shadow: .2rem .2rem 0px rgba(255, 157, 0, 0.9);
-  transition: box-shadow .3s, transform .3s, background-color .3s, border .3s;
-  transform: translate(0, 0);
-  text-decoration: none;
-  text-align: center;
-  white-space: nowrap
-}
-
-.hero__btn:hover {
-  cursor: pointer;
-  background-color: #FF9D00;
-  border-color: #FF9D00;
-  box-shadow: 0 0 0px rgba(124, 78, 3, 0.9);
-  transform: translate(.2rem, .2rem);
-}

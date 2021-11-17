@@ -1,12 +1,14 @@
 import './App.css';
 import './fonts.css'
 import React from "react";
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Switch, useHistory } from 'react-router-dom'
 import Header from './components/Header';
 import Home from './pages/Home';
 import Pokemons from './pages/Pokemons';
 import PokemonPage from './pages/PokemonPage';
 import NewGame from './pages/NewGame';
+import Game from './pages/Game';
+import Leaderboard from './pages/Leaderboard';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -29,15 +31,15 @@ const theme = createTheme({
 });
 
 function App() {
-  const navigate = useNavigate();
+  const history = useHistory();
   const goHome = () => {
-    navigate("/");
+    history.push("/");
   }
   const goBack = () => {
-    navigate(-1);
+    history.goBack();
   }
   const goForward = () => {
-    navigate(+1);
+    history.goForward();
   }
   console.log(colors("fire"))
   return (
@@ -62,16 +64,34 @@ function App() {
           </Button>
         </ButtonGroup>
       </ThemeProvider>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/pokemons/" element={<Pokemons />} />
-        <Route path="/pokemons/:id/:info" element={<PokemonPage />} />
-        <Route path="/pokemons/:id" element={<PokemonPage />} />
-        <Route path="/newgame/" element={<NewGame />} />
-        <Route path="/game/:id" element={<NewGame />} />
+      <Switch>
+        <Route exact path="/" >
+          <Home />
+        </Route>
+        <Route exact path="/pokemons/" >
+          <Pokemons />
+        </Route>
+        <Route path="/pokemons/:id/:info" >
+          <PokemonPage />
+        </Route>
+        <Route path="/pokemons/:id" >
+          <PokemonPage />
+        </Route>
+        <Route path="/newgame/" >
+          <NewGame />
+        </Route>
+        <Route path="/game/:id" >
+          <Game />
+        </Route>
+        <Route path="/game/" >
+          <Game />
+        </Route>
+        <Route path="/leaderbord" >
+          <Leaderboard />
+        </Route>
         {/* <Route path="/newgame/newuser/" element={<PokemonPage />} />
         <Route path="/newgame/game/:count" element={<PokemonPage />} /> */}
-      </Routes>
+      </Switch>
     </>
 
   );

@@ -16,38 +16,26 @@ const Pokemons = () => {
   const [cardsOnPage, setCardsOnPage] = useState(20)
   const [dataForPage, setDataForPage] = useState()
   const [currentPage, setCurrentPage] = useState(1)
-  const [allPages, setAllPages] = useState()
+  const [allPages, setAllPages] = useState(41)
   const changePage = (_, value) => {
     setCurrentPage(value);
-    const lastIndex = cardsOnPage * value;
-    const firstIndex = lastIndex - cardsOnPage;
-    const dataOnPage = data.slice(firstIndex, lastIndex)
-    setDataForPage(dataOnPage)
-    console.log(dataOnPage)
-    console.log(lastIndex)
   };
   const { id } = useParams()
 
 
   useEffect(() => {
     setIsLoading(prev => prev = !prev)
-    axios.get('https://wbs-pokefight.herokuapp.com/pokemons')
+    axios.get(`https://wbs-pokefight.herokuapp.com/pokemons/page/${currentPage}`)
       .then((response) => {
         // handle success
         setData(response.data)
-        // setIsLoading(false)
-        setAllPages(Math.ceil(response.data.length / cardsOnPage))
-        const lastIndex = cardsOnPage * currentPage;
-        const firstIndex = lastIndex - cardsOnPage;
-        const dataOnPage = response.data.slice(firstIndex, lastIndex)
-        setDataForPage(dataOnPage)
       })
       .catch(function (error) {
         console.log(error);
       })
 
 
-  }, [])
+  }, [currentPage])
 
 
   return (
@@ -62,7 +50,7 @@ const Pokemons = () => {
           All Pokemons
         </Typography>
         <div className="pokemons__row">
-          {dataForPage && dataForPage.map(pokemon => {
+          {data && data.map(pokemon => {
             return (
               <PokeCard
                 key={pokemon.id}

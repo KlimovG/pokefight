@@ -1,0 +1,26 @@
+.leaderbord__row {}
+
+.leaderbord__item {
+  margin: 0 auto 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.leaderbord__item>h3 {
+  margin-right: 1rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
+
+}
+
+.leaderbord__item>h3:last-of-type {
+  margin-right: 0;
+}
+
+.leaderbord__score {
+  background-color: #66bb6a;
+}
+
+.leaderbord__winner {
+  background-color: #ffb74d;
+}

@@ -47,7 +47,10 @@ const PokeCardGame = ({ pokemonId, name, type, base, setPlayer }) => {
   }
   const { id } = useParams()
   const { info } = useParams()
+  const toggleActiveClass = (e) => {
+    return e.currentTarget.classList.add("active")
 
+  }
   useEffect(() => {
     setIsLoading(true)
     setColor(() => colors[findColor()])
@@ -68,8 +71,11 @@ const PokeCardGame = ({ pokemonId, name, type, base, setPlayer }) => {
   return (
     <Card
       sx={{ width: "100%", maxWidth: 100, backgroundColor: color }}
-      className="game__card active"
-      onClick={(e) => setPlayer(e)}
+      className="game__card"
+      onClick={(e) => {
+        setPlayer(e)
+        toggleActiveClass(e)
+      }}
       id={pokemonId}
     >
       {

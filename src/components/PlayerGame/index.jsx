@@ -36,16 +36,29 @@ const colors = {
   steel: '#B7B7CE',
   fairy: '#D685AD',
 };
-const PlayerGame = ({ id, type, name, num, active, attack, activePlayer, base, spAttack }) => {
+const PlayerGame = ({ id, type, name, num, active, attack, playerName, base, spAttack }) => {
   const [image, setImage] = useState(null)
   const [color, setColor] = useState()
   const [isLoading, setIsLoading] = useState(false)
   const [cardWidth, setCardWidth] = useState(345)
+  const [spAttackCount, setSpAttackCount] = useState(3)
 
   const { info } = useParams()
 
 
+  const enableSpAttack = (e) => {
+    const name = e.target.classList
+    console.log(name)
+    if (name.contains("attack")) {
+      console.log("is attack")
+      if (spAttackCount < 3) {
+        setSpAttackCount(prev => prev += 1)
+      }
+    } else if (name.contains("spAttack")) {
+      setSpAttackCount(prev => prev = 0)
 
+    }
+  }
 
   useEffect(() => {
 
@@ -82,7 +95,7 @@ const PlayerGame = ({ id, type, name, num, active, attack, activePlayer, base, s
   return (
     <Box className="player__wrap" >
       <Typography variant="h6" color="text.secondary" sx={{ marginBottom: ".5rem" }}>
-        Player : {num}
+        {playerName}
       </Typography>
       <Card
         sx={{ width: "100%", maxWidth: 100, backgroundColor: color }}
@@ -178,8 +191,27 @@ const PlayerGame = ({ id, type, name, num, active, attack, activePlayer, base, s
         }
         {active &&
           <Stack>
-            <Button name={num} onClick={(e) => attack(e)}> Attack</Button>
-            <Button className="spAttack" name={num} onClick={(e) => spAttack(e)}> Attack</Button>
+            <button className="button button--attack attack" name={num} onClick={(e) => {
+              attack(e)
+              enableSpAttack(e)
+            }}> Attack</button>
+            {spAttackCount === 3 ?
+
+              <button className="button button--attack spAttack" name={num} onClick={(e) => {
+                spAttack(e)
+                enableSpAttack(e)
+
+              }}> Special attack</button>
+
+              :
+
+              <button className="button button--attack spAttack" name={num} onClick={(e) => {
+                spAttack(e)
+                enableSpAttack(e)
+
+              }} disabled> Special attack</button>
+
+            }
 
           </Stack>
         }

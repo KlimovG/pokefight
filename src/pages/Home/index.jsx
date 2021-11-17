@@ -11,15 +11,15 @@ import {
 const Home = () => {
 
   return (
-    <section className="hero">
+    <section className="section hero">
       <Container maxWidth="sm">
         <Typography className="hero__title title" variant="h1" component="h1" gutterBottom>
           Play a game?
         </Typography>
         <Stack spacing={4} direction="column" justifyContent="center" alignItems="center">
-          <Link className="hero__btn" to="/pokemons">see all pokemons</Link>
-          <Link className="hero__btn" to="/newgame">new game</Link>
-          <Link className="hero__btn" to="/newgame">results</Link>
+          <Link className="button button--main" to="/pokemons">see all pokemons</Link>
+          <Link className="button button--main" to="/newgame">new game</Link>
+          <Link className="button button--main" to="/leaderbord">score</Link>
         </Stack>
       </Container>
     </section>

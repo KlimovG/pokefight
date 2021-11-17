@@ -5,7 +5,7 @@ const StatProgressBar = ({ type, value }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const currentValue = Math.ceil(value / 2)
+    const currentValue = Math.ceil(value / 1.3)
     console.log(currentValue)
     setProgress((oldProgress) => {
       return oldProgress = currentValue
