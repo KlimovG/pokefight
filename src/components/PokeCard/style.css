@@ -33,6 +33,10 @@
   max-width: 100%;
 }
 
+.pokemons-card__image.MuiCardMedia-root {
+  object-fit: contain;
+}
+
 .pokemons-card__base>span:nth-child(1) {
   color: #242730;
 }
