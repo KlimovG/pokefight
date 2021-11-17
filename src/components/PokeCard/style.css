@@ -1,0 +1,103 @@
+.pokemons-card {
+  margin-bottom: 2rem;
+  transition: max-width .3s;
+}
+
+.pokemons-card:nth-child(odd) {
+  margin-right: 1rem;
+}
+
+.pokemons-card:nth-of-type(even) {
+  margin-left: 1rem;
+}
+
+.pokemons-card__image.css-o69gx8-MuiCardMedia-root {
+  margin: 0 auto;
+  width: auto;
+}
+
+.pokemons-card__row {
+  flex-wrap: wrap;
+}
+
+.pokemons-card__row-base {
+  padding: 1rem 1rem;
+}
+
+.pokemons-card__link {
+  text-decoration: none;
+}
+
+.pokemons-card__base {
+  margin-bottom: 0.5rem;
+  max-width: 100%;
+}
+
+.pokemons-card__base>span:nth-child(1) {
+  color: #242730;
+}
+
+.pokemons-card__base>span:nth-child(2) {
+  margin-top: 0.5rem;
+}
+
+.pokemons-card__base .MuiLinearProgress-root {
+  width: 60%;
+  height: 1rem;
+  margin: 0 0 0 auto;
+  border: 1px solid #242730;
+}
+
+.pokemons-card__base .pokemons-card__hp.MuiLinearProgress-root span.MuiLinearProgress-bar {
+  background-color: #53CD5B
+}
+
+.pokemons-card__base .pokemons-card__hp.MuiLinearProgress-root {
+
+  background-color: rgba(83, 205, 91, .2);
+}
+
+.pokemons-card__base .pokemons-card__attack.MuiLinearProgress-root span.MuiLinearProgress-bar {
+  background-color: #F6DE52
+}
+
+.pokemons-card__base .pokemons-card__attack.MuiLinearProgress-root {
+
+  background-color: rgba(246, 222, 82, .2);
+}
+
+.pokemons-card__base .pokemons-card__defense.MuiLinearProgress-root span.MuiLinearProgress-bar {
+  background-color: #ED7F0F
+}
+
+.pokemons-card__base .pokemons-card__defense.MuiLinearProgress-root {
+
+  background-color: rgba(237, 127, 15, .2);
+}
+
+.pokemons-card__base .pokemons-card__spattack.MuiLinearProgress-root span.MuiLinearProgress-bar {
+  background-color: #56B0F1
+}
+
+.pokemons-card__base .pokemons-card__spattack.MuiLinearProgress-root {
+
+  background-color: rgba(86, 176, 241, .2);
+}
+
+.pokemons-card__base .pokemons-card__spdefense.MuiLinearProgress-root span.MuiLinearProgress-bar {
+  background-color: #AD62F6
+}
+
+.pokemons-card__base .pokemons-card__spdefense.MuiLinearProgress-root {
+
+  background-color: rgba(173, 98, 246, .2);
+}
+
+.pokemons-card__base .pokemons-card__speed.MuiLinearProgress-root span.MuiLinearProgress-bar {
+  background-color: #F06ACE
+}
+
+.pokemons-card__base .pokemons-card__speed.MuiLinearProgress-root {
+
+  background-color: rgba(240, 106, 206, .2);
+}

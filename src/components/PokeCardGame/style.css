@@ -1,0 +1,50 @@
+.game {
+  padding-bottom: 60px;
+}
+
+.game__row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.game__card.MuiCard-root {
+  max-width: 100%;
+  width: 75px;
+  height: 75px;
+  margin-bottom: .5rem;
+  margin-right: 0.5rem;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform .3s;
+}
+
+.game__card.MuiCard-root:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.game__card.MuiCard-root.active {
+  outline: 3px solid #FF9D00;
+}
+
+.game__card-title.MuiCardHeader-root {
+  padding: 0;
+}
+
+.game__card-title .MuiCardHeader-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.game__card.MuiCard-root img {
+  max-width: 80%;
+  width: auto;
+  max-height: 100%;
+  height: auto;
+  object-fit: contain;
+}

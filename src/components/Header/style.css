@@ -1,0 +1,19 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  z-index: 99;
+}
+
+.header__logo {
+  max-height: 100%;
+  height: 100%;
+  width: auto;
+  filter: drop-shadow(5px 5px 5px #6B4200);
+}

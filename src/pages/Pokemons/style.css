@@ -1,0 +1,17 @@
+.pokemons {
+  padding-bottom: 50px;
+}
+
+.pokemons__row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* .pokemons__row div:nth-of-type(odd) {
+  margin-right: 1rem;
+}
+
+.pokemons__row div:nth-of-type(blue) {
+  margin-left: 1rem;
+} */

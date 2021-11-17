@@ -1,0 +1,12 @@
+.newplayer__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.newplayer__input .MuiFilledInput-root.MuiInputBase-root,
+.newplayer__input .MuiFilledInput-root.MuiInputBase-root,
+.newplayer__input .MuiFilledInput-root.MuiInputBase-root.Mui-focused {
+  background-color: transparent;
+}

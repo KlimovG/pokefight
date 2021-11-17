@@ -1,0 +1,10 @@
+.hero {
+  margin-top: 30vh;
+}
+
+.hero__title.MuiTypography-h1 {
+  margin-bottom: 3rem;
+  font-weight: 900;
+  font-size: 3rem;
+  text-align: center;
+}
